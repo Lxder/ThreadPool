@@ -10,6 +10,7 @@
 #include <future>
 #include <functional>
 #include <stdexcept>
+#include "singleton/singleton.h"
 
 class ThreadPool {
 public:
@@ -111,5 +112,7 @@ inline ThreadPool::~ThreadPool()
     for(std::thread &worker: workers)
         worker.join();
 }
+
+#define PTHREADPOOL Singleton<ThreadPool>::GetInstance()
 
 #endif

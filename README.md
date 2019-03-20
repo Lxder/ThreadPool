@@ -15,6 +15,15 @@ auto result = pool.enqueue([](int answer) { return answer; }, 42);
 std::cout << result.get() << std::endl;
 
 ```
+Or you can use singleton:
+```c++
+// create thread pool
+PTHREADPOOL->create(4,100);
+
+// enqueue and store future
+auto result = PTHREADPOOL->enqueue([](int answer) { return answer; }, 42);
+
+```
 
 You can compile example.cpp like that:
 ```
